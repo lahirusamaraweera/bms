@@ -1,0 +1,103 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body" align="left">
+        <p style="font-size : 15px; margin-bottom : 1px;" class="lead"><b>Item configuration</b></p>
+        <hr>
+
+        <div class="row">
+
+            <!-- categories -->
+            <div class="col-md-6">
+                <p style="font-size : 12px; margin-bottom : 1px;" class="lead">Categories</p>
+                <hr>
+                <div class="form-horizontal">
+                    <div class="form-group">
+
+                        <div class="col-md-4">
+                            <input class="form-control" required id="cname" placeholder="Category name" type="text" ng-model="cname">
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" required id="cremarks" placeholder="Remarks" type="text" ng-model="cremarks">
+                        </div>
+                        <div class="col-md-4">
+                            <button ng-disabled="progc" ng-show="cname" ng-click="savecat()" class="btn btn-sm btn-block btn-success" type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="progc" class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+                <hr>
+                <table class="table table-striped  table-hover" align="center" style="font-size : 11px;">
+                    <tr align="Center">
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Remarks</th>
+                        <th></th>
+
+                    </tr>
+
+                    <tr ng-repeat="x in cats | filter : fil ">
+
+                        <td>{{ $index+1 }}</td>
+                        <td >{{x.name}} | Category ID : {{x.cat_id}}</td>
+                        <td>{{x.remarks}}</td>
+                        <td><button class="btn btn-block btn-sm btn-link">Edit</button> </td>
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+            <!--  Brand -->
+            <div class="col-md-6">
+                <p style="font-size : 12px; margin-bottom : 1px;" class="lead">Brands</p>
+                <hr>
+                <div class="form-horizontal">
+                    <div class="form-group">
+
+                        <div class="col-md-4">
+                            <input class="form-control" required id="bname" placeholder="Brand name" type="text" ng-model="bname">
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" required id="bremarks" placeholder="Remarks" type="text" ng-model="bremarks">
+                        </div>
+                        <div class="col-md-4">
+                            <button ng-show="bname" ng-disabled="progb" ng-click="savebrand()" class="btn btn-sm btn-block btn-success" type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="progb" class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+                <hr>
+                <table class="table table-striped  table-hover" align="center" style="font-size : 11px;">
+                    <tr align="Center">
+                        <th>#</th>
+                        <th>Brand</th>
+                        <th>Remarks</th>
+                        <th></th>
+
+                    </tr>
+
+                    <tr ng-repeat="x in brands | filter : fil ">
+
+                        <td>{{ $index+1 }}</td>
+                        <td>{{x.name}} | Brand ID : {{x.b_id}}</td>
+                        <td>{{x.remarks}}</td>
+                        <td><button class="btn btn-block btn-sm btn-link">Edit</button> </td>
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;">
+		<div class="col-md-12">
+
+			<div class="well">
+
+				<h3><i class="fa fa-car fa-1x"></i> Rent a Car App</h3>
+				<p><a ui-sref="home">Home</a> > Rentacar </p>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Rentacar</h3>
+				</div>
+				<div class="panel-body" align="center">
+
+					<div class="row">
+						<div class="col-xs-6">
+							<h3><b>{{cars.length}}</b></h3>
+							<p>Available cars</p>
+
+						</div>
+						<div class="col-xs-6">
+							<h3><b>{{prents.length}}</b></h3>
+							<p>Pending rents</p>
+
+
+						</div>
+
+
+
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-xs-12">
+
+
+							<button ui-sref="newcar" class="btn btn-success btn-block"><i class="fa fa-plus"></i> Add a new Car</button>
+							<button ui-sref="bug" class="btn btn-default btn-block "><i class="fa fa-ban"></i> Report a problem</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div class="col-md-9">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Dashboard</h3>
+				</div>
+				<div class="panel-body" >
+
+					<div class="btn-group btn-group-justified">
+						<a  ui-sref="rentacar.cars"class="btn btn-default">Cars</a>
+						<a  ui-sref="rentacar.prents" class="btn btn-default">Rents</a>
+						<a  ui-sref="rentacar.crents "class="btn btn-default">Completed</a>
+					</div>
+					<hr>
+					<div class="row" ui-view>
+
+
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+
+
+
+

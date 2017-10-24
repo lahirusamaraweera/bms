@@ -1,0 +1,72 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body" >
+
+        <form class="form-horizontal">
+            <fieldset id="exportthisd">
+                <p style="font-size : 15px; margin-bottom : 1px;" class="lead">Purchase Order - ID {{po.po_id}}</p>
+                <hr>
+
+                <table class="table table-bordered table-hover"  style="font-size : 13px;">
+                    <tr>
+                        <td>Order total</td>
+                        <td>{{po.total | number}} 
+
+                            <span ng-show="po.pstatus == 0" class="badge" style="background-color : #f44242;" >Payment not done</span><span ng-show="po.pstatus == 1" class="badge" style="background-color : #187703;">Payment done</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>{{po.timestamp}}</td>
+                    </tr>
+                    <tr>
+                        <td>Supplier</td>
+                        <td>{{po.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Remarks</td>
+                        <td>{{po.remarks}}</td>
+                    </tr>
+                </table>
+
+                <hr>
+
+                <table class="table table-bordered table-hover"  style="font-size : 11px;">
+                    <tr align="Center" >
+                        <th>#</th>
+                        <th>Item</th>
+                        <th>qty/unitprice</th>
+                        <th>Total</th>
+
+                    </tr>
+
+                    <tr ng-repeat="x in poitems | filter : fil " >
+
+                        <td>{{ $index+1 }}</td>
+                        <td>{{x.name}}<br>item id  :{{x.i_id}}</td>
+                        <td>Qty : {{x.qty}}<br>Unitprice : {{x.price/x.qty}}</td>
+                        <td>{{x.price | number}}</td>   
+
+                    </tr>
+
+
+                </table>
+
+
+
+
+
+            </fieldset>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2" align="right">
+                    
+                    <button ng-disabled="prog" type="submit" ng-show="po.pstatus==0" ng-click="complete()" class="btn btn-danger">Payment Done</button>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="container animated bounceInUp">
+
+
+	<div class="row" style="padding-top : 10px">
+		
+
+		<div class="col-md-12" align="center">
+
+			<div class="well" style="max-width : 500px">
+
+
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>Register - BMS</legend>
+						<p class="lead" style="font-size: 11px;">Please provide the follwing details. </p>
+								
+
+						<div class="form-group">
+							<div class="col-md-12">
+								<input class="form-control" id="semail" placeholder="Email" type="text" ng-model="semail">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<input class="form-control" id="sname" placeholder="Name" type="text" ng-model="sname">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<input class="form-control" id="stp" placeholder="Telephone" type="text" ng-model="stp">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12">
+								<input class="form-control" id="spass" placeholder="Choose a Password" type="password" ng-model="spass">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12">
+								<input class="form-control" id="spass1" placeholder="Retype Password" type="password" ng-model="spass1">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12">
+								<select ng-model="req" class="form-control" id="req" required>
+                            		<option value="">--Please select--</option>
+									<option value="dms">Distribution Management app</option>
+									<option value="rentacar">rentacar</option>
+                            
+                        	</select>
+							</div>
+						</div>
+
+
+
+						<div ng-show="prog1" class="progress progress-striped active">
+							<div class="progress-bar" style="width: 100%"></div>
+						</div>
+						<div ng-show='success1' class="alert alert-dismissible animated bounceIn alert-success">
+							<strong>Done !</strong> We will contact you shortly .
+						</div>
+						<div ng-show='passmat' class="alert alert-dismissible animated bounceIn alert-warning">
+							<strong>Opps !</strong> Passwords are not matching.
+						</div>
+
+						<div ng-show='fail' class="alert alert-dismissible animated bounceIn alert-danger">
+							<strong>Opps !</strong> Something went wrong - try using a different email or contact Lahiru 0755527729.
+						</div>
+						
+
+						<div class="form-group">
+							<div class="col-lg-10 col-lg-offset-2" align="right">
+								<p class="lead" style="font-size: 11px;">Do you agree with our <a ui-sref="tou">terms of use</a><br>** With the registraion you are agree with our terms and conditions </p>
+								
+								<button ng-show="semail && spass && spass1 && stp && req && sname" ng-click="trial()" class="btn btn-info">Yes! Register</button>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+</div>

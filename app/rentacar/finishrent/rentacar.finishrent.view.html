@@ -1,0 +1,216 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;">
+		<div class="col-md-12">
+
+			<div class="well">
+
+				<h3><i class="fa fa-fighter-jet  fa-1x"></i> Finish Rent </h3>
+				<p><a ui-sref="home">Home</a> > <a ui-sref="rentacar.cars">Rentacar</a> > Finish Rent</p>
+				<button ui-sref="rentacar.prents" class="btn btn-primary"><i class="fa fa-home"></i> back</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+
+
+		<div class="col-sm-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Rent details</h3>
+				</div>
+				<div class="panel-body" >
+					<table class="table table-bordered table-hover"  style="font-size : 13px;">
+
+						<tr>
+							<td colspan="2"><b>Vehicle Details</b></td>
+						</tr>
+						<tr>
+							<td>Car ID</td>
+							<td><b>{{rent.c_id}}</b></td>
+
+						</tr>
+						<tr>
+							<td>Vehicle Number</td>
+							<td><b>{{rent.v_no}}</b></td>
+
+						</tr>
+						<tr>
+							<td>Make and Model</td>
+							<td><b>{{rent.make +" "+rent.model}}</b></td>
+
+						</tr>
+
+						<tr>
+							<td>YOM</td>
+							<td><b>{{rent.year}}</b></td>
+
+						</tr>
+
+						<tr>
+							<td colspan="2"><b>Client and Rent Details</b></td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								{{rent.cx_name}}<br>
+								{{rent.cx_nic}}<br>
+								{{rent.cx_address}}<br>
+								{{rent.cx_tp}}
+
+							</td>
+
+
+						</tr>
+						<tr>
+							<td colspan="2">
+								Rent ID : {{rent.r_id}}<br>
+								Packege : {{rent.pkg}}<br>
+								Initial milage : {{rent.im}}<br>
+								Rent date : {{rent.timestamp}}
+
+							</td>
+
+
+						</tr>
+
+
+					</table>
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="col-sm-9">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Update details</h3>
+				</div>
+				<div class="panel-body" >
+
+
+					<form class="form-horizontal">
+						<fieldset>
+
+							<div class="form-group">
+								<label for="em" class="col-lg-2 control-label">End Milage</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="em" placeholder="" type="number" ng-model="em">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="nod" class="col-lg-2 control-label">No. of {{cond}}</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="nod" placeholder="" type="number" ng-model="nod">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2" align="right">
+
+									<button type="" ng-click="calc()" class="btn btn-success">Calculate the Bill</button>
+								</div>
+							</div>
+
+
+							<div ng-show="bill">
+								<hr>
+								<div ng-show="prog1" class="progress progress-striped active">
+									<div class="progress-bar" style="width: 100%"></div>
+								</div>
+
+								<table class="table table-bordered table-hover"  style="font-size : 13px;">
+									<tr>
+
+										<th align="center" colspan="2"><u>Bill Summery</u></th>
+
+									</tr>
+									<tr>
+										<td>Rent Total</td>
+										<td align="right">{{rt | number:2}}</td>
+									</tr>
+									<tr>
+										<td>Total Trip</td>
+										<td align="right">{{trip | number}} Km</td>
+									</tr>
+									<tr>
+										<td>Extra Milage</td>
+										<td align="right">{{extramilage | number}} Km</td>
+									</tr>
+									<tr>
+										<td>Extra charges</td>
+										<td align="right">{{ec | number:2}}</td>
+									</tr>
+									<tr><b>
+										<td>Sub Total</td>
+										<td align="right">{{rt+ec | number:2}}</td>
+										</b>
+									</tr>
+									<tr>
+
+
+								</table>	
+
+
+								<div ng-show="prog" class="progress progress-striped active">
+									<div class="progress-bar" style="width: 100%"></div>
+								</div>
+
+								<div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+									<strong>Sorry ! </strong>Saving failed.
+								</div>
+								<div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+									<strong>Successfully </strong>Record Updated.
+								</div>
+								<div class="form-group">
+									<div class="col-lg-10 col-lg-offset-2" align="right">
+										<button ui-sref="rentacar.prents" class="btn btn-primary"><i class="fa fa-home"></i> back</button>
+										<button type="" ng-click="saveand()" class="btn btn-success">Payment Completed, Save</button>
+
+									</div>
+								</div>
+
+							</div>
+
+
+						</fieldset>
+					</form>
+
+
+
+
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+
+

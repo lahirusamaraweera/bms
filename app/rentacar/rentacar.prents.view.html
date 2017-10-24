@@ -1,0 +1,40 @@
+<div class="col-md-12 animated bounceInLeft">
+
+
+	<div class="form-group" align="right">
+		<label for="username" class="col-lg-6 control-label">Search</label>
+		<div class="col-lg-6">
+			<input class="form-control" required id="rfil" placeholder="" type="text" ng-model="rfil">
+		</div>
+	</div>
+	<hr>
+	<table class="table table-bordered table-hover"  style="font-size : 13px;">
+
+		<tr align="Center" >
+			<th>#</th>
+			<th>Rent details</th>
+			<th></th>
+
+		</tr>
+
+		<tr ng-repeat="x in prents | filter : rfil " >
+
+			<td>{{ $index+1 }}</td>
+			<td>
+				<h5>{{x.v_no}}</h5>{{x.make+" "+x.model}}
+				<br>Rent Date : {{x.timestamp}}
+				<br><b>{{x.cx_name}}</b>
+				<br>{{x.cx_tp}}
+				<br>{{x.cx_address}}
+				<br>Initial milage : {{x.im | number}}</td>
+			<td><button class="btn btn-info btn-block" ui-sref="finishrent({rid : x.r_id })">Finish Rent</button></td>
+			
+
+		</tr>
+
+	</table>
+
+
+
+
+</div>

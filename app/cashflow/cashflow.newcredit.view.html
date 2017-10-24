@@ -1,0 +1,98 @@
+<div class="container animated" >
+	<div class="row" style="padding-top : 50px;">
+		<div class="col-md-12">
+
+			<div class="well">
+
+				<h3>Cash flow App</h3>
+				<p><a ui-sref="home">Home</a> > <a ui-sref="cashflow">Cashflow</a> > New Credit  </p>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-7">
+
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title">New Credit Details</h3>
+				</div>
+				<div class="panel-body" align="center">
+
+					<form class="form-horizontal">
+						<fieldset>
+							
+							<div align="center">
+								<br>
+								<i class="fa fa-minus fa-5x" aria-hidden="true"></i>
+							</div>
+							<br>
+
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">Description</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="descrip" placeholder="" type="text" ng-model="descrip">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="pass" class="col-lg-2 control-label">Amount</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="creditamt" placeholder="" type="number" ng-model="creditamt" step=".01">
+								</div>
+							</div>
+							<div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+								<strong>Sorry ! </strong>Saving failed.
+							</div>
+							<div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+								<strong>Successfully </strong>Record Updated.
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2" align="right">
+
+									<button type="submit" ng-click="savecredit()" class="btn btn-success">Save</button>
+								</div>
+							</div>
+							
+						</fieldset>
+					</form>
+
+
+				</div>
+
+			</div>
+
+
+
+
+
+		</div>
+
+		<div class="col-md-5">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Options</h3>
+				</div>
+				<div class="panel-body">
+
+					<div class="list-group" align="center">
+						<a  href="" ui-sref="cashflow" class="list-group-item">
+							<p style="font-size:15px" ><i class="fa fa-arrow-left fa-2x"></i><br>Back</p>
+						</a>
+						
+
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>	
+
+
+	</div>
+
+
+
+</div>
+

@@ -1,0 +1,144 @@
+<div class="panel panel-info animated bounceInUp">
+
+    <div class="panel-body">
+        <p style="font-size : 13px; margin-bottom : 1px;" class="lead"><b>Get Outstanding Statements</b></p>
+        <hr>
+
+        <div class="btn-group btn-group-justified">
+            <a  class="btn btn-warning disabled">to be paid Report</a>
+            <a ng-click="outsprnt()" class="btn btn-success">Income Report</a>
+            
+        </div>
+
+
+    </div>
+</div>
+
+<div class="panel panel-info animated bounceInUp">
+
+    <div class="panel-body">
+
+
+        <form class="form-horizontal">
+
+            <p style="font-size : 13px; margin-bottom : 1px;" class="lead"><b>My Details - userid : {{id}}</b></p>
+            <hr>
+            <div align="right">
+                <button ng-click="prof()" class="btn btn-sm btn-info">Download My info sheet</button>
+            </div>
+          
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Shop name</p>
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <input class="form-control" required id="name" placeholder="Shop name " type="text" ng-model="name">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="moto" placeholder="Moto" type="text" ng-model="moto">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="regno" placeholder="Reg:no" type="text" ng-model="regno">
+                </div>
+            </div>
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Address</p>
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <input class="form-control" required id="address1" placeholder="line 01" type="text" ng-model="address1">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="address2" placeholder="line 02" type="text" ng-model="address2">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="city" placeholder="City" type="text" ng-model="city">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="name" placeholder="Postal code" type="text" ng-model="postalcode">
+                </div>
+            </div>
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Telephone</p>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input class="form-control" required id="tp" placeholder="" type="text" ng-model="tp">
+                </div>
+            </div>
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Email</p>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input class="form-control" required id="mail" placeholder="Email" type="text" ng-model="mail">
+                </div>
+            </div>
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Notes and conditions - For invoice</p>
+            <div class="form-group">
+                <div class="col-md-12">
+
+                    <textarea class="form-control" rows="3" id="note" ng-model="note"></textarea>
+
+                </div>
+
+            </div>
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Notes and conditions - For Quotation</p>
+            <div class="form-group">
+                <div class="col-md-12">
+
+                    <textarea class="form-control" rows="3" id="noteq" ng-model="noteq"></textarea>
+
+                </div>
+
+            </div>
+
+
+            <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Account Details</p>
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <input class="form-control" required id="bank" placeholder="Bank " type="text" ng-model="bank">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="branch" placeholder="Branch" type="text" ng-model="branch">
+                </div>
+                <div class="col-md-12">
+                    <input class="form-control" required id="accno" placeholder="Account No" type="text" ng-model="accno">
+                </div>
+            </div>
+
+
+
+
+
+            <div ng-show="prog" class="progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+            <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+                <strong>Sorry ! </strong>Saving failed.
+            </div>
+            <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+                <strong>Successfully </strong>Record Updated.
+            </div>
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-2" align="right">
+
+                    <button ng-show="name && address1 && address2 && city && postalcode && mail && tp && moto && note && noteq && regno && bank && branch && accno"
+                        ng-click="save()" class="btn btn-warning">Save changes</button>
+
+                </div>
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+    </div>
+</div>

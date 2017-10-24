@@ -1,0 +1,90 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+        <p style="font-size : 15px; margin-bottom : 1px;" class="lead"><b>All items - Price list</b> </p>
+        <hr>
+        <div class="row">
+
+            <div class="form-group" align="center">
+
+                <div class="col-md-5">
+                    <select ng-model="category" ng-disabled="bad" class="form-control" id="category" required ng-options="x.cat_id as x.name for x in cats">
+                            <option value="">All</option>
+                            
+                            
+                    </select>
+                    
+                </div>
+                <div class="col-md-2">
+                    <button ng-click="fetch()" ng-disabled="prog" class="btn  btn-primary btn-sm btn-block">Fetch</button>
+
+                </div>
+                <div class="col-md-5" align="right">
+                    <button ng-disabled="!(items) || prog" ng-click="down()" class="btn  btn-info btn-sm ">Price list  (.pdf)</button>
+                    <button ng-disabled="!(items) || prog" ng-click="downs()" class="btn  btn-success btn-sm k">Stock (.pdf)</button>
+                </div>
+                <br>
+            </div>
+
+
+            <div ng-show="prog" class="col-md-12 progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+
+            <hr>
+            <div class="form-group" align="right">
+                <label for="fil" class="col-sm-4 control-label">Search</label>
+                <div class="col-sm-8">
+                    <input class="form-control" required id="fil" placeholder="" type="text" ng-model="fil">
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <table class="table table table-striped  table-hover" style="font-size : 11px;">
+                    <tr align="Center">
+                        <th>#</th>
+                        <th>Item details</th>
+                        <th>Price</th>
+                        <th>Stock Qty</th>
+                        <th></th>
+
+                    </tr>
+
+                    <tr ng-repeat="x in items | filter : fil ">
+
+                        <td>{{ $index+1 }}</td>
+                        <td align="left"><b>{{x.name}}</b> | {{x.brand}} | {{x.packsize}} | {{x.category}} - Item id : {{x.i_id}}</td>
+                        <td>{{x.price | number:2}}</td>
+                        <td>
+                            <span style="font-size: 11px;" ng-show="x.stock_qty>0" class="label label-success"> In stock - {{x.stock_qty}}</span>
+                            <span style="font-size: 11px;" ng-show="x.stock_qty <= 0" class="label label-danger"> Out of stocks</span>
+
+
+                        </td>
+                        <td>
+                            <button ng-disabled="prog" ui-sref="dms_item.edit({i_id : x.i_id })" class="btn btn-link btn-sm btn-block"> View</button>
+                        </td>
+
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

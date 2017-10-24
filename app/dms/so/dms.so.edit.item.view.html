@@ -1,0 +1,80 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+
+
+        <fieldset>
+            <p style="font-size : 15px; margin-bottom : 1px;" class="lead">Edit Item :           {{soitem.s_id}} | {{soitem.name}} | {{soitem.packsize}}</p>
+            
+            <hr>
+
+            <table class="table table-bordered table-hover"  style="font-size : 11px;">
+                <tr>
+                    <td>Sales Order ID </td>
+                    <td>{{soitem.pi_id}} </td>
+                </tr>
+                <tr>
+                    <td>Sup item details </td>
+                    <td>{{soitem.name}}</td>
+                </tr>
+
+            </table>
+
+            <hr>
+
+            <form>
+                <div class="form-group">
+
+                    <div class="col-sm-4">
+                        <label for="qtyw" class=" control-label">Qty</label>
+                        <input class="form-control" required id="qtyw" placeholder="Unit Price" type="number" ng-model="qtyw" step='0.01'>
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="price" class=" control-label">Unit Price</label>
+                        <input class="form-control" required id="price" placeholder="Unit Price" type="number" ng-model="price" step='0.01'>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="price" class=" control-label">Cost</label>
+                        <input class="form-control" required id="cost" placeholder="cost" type="number" ng-model="cost" step='0.01'>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                </fieldset>
+            
+            <br>
+
+            <div ng-show="prog" class="progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+            <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+                <strong>Sorry ! </strong>Saving failed.
+            </div>
+            <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+                <strong>Successfully </strong>Record Updated.
+            </div>
+            
+            <hr>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2" align="right">
+                    <button ui-sref="dms_so.deleteitem({s_id : soitem.s_id, so_id : so_id })" class="btn btn-sm btn-danger">Delete this</button>
+                    <button type="submit" ng-click="save()" class="btn btn-sm btn-warning">Save chages</button>
+                    <button  ui-sref="dms_so.edit({so_id : so_id })" class="btn btn-sm btn-primary">Back</button>
+
+                </div>
+            </div>
+            </form>
+
+    </div>
+</div>

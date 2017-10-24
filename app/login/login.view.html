@@ -1,0 +1,58 @@
+<div class="container animated bounceInUp">
+
+
+	<div class="row" style="padding-top : 10px">
+		<div class="col-md-12" align="center">
+
+			<div class="well" style="max-width : 500px">
+
+
+				<form class="form-horizontal">
+					<fieldset>
+						<legend><b>BMS</b> - Login</legend>
+						<div align="center">
+
+							<i class="fa fa-user fa-5x" aria-hidden="true"></i>
+						</div>
+						<br>
+
+						<div class="form-group">
+							<label for="username" class="col-lg-2 control-label">Email</label>
+							<div class="col-lg-10">
+								<input class="form-control" id="username" placeholder="" type="text" ng-model="lemail">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="pass" class="col-lg-2 control-label">Password</label>
+							<div class="col-lg-10">
+								<input class="form-control" id="pass" placeholder="" type="password" ng-model="pass">
+							</div>
+						</div>
+						<div ng-show="prog" class="progress progress-striped active">
+							<div class="progress-bar" style="width: 100%"></div>
+						</div>
+						<div ng-show='alerta' class="alert alert-dismissible animated bounceIn alert-danger">
+							<strong>Login Failled</strong> Wrong Username or Password
+						</div>
+						<div ng-show='emty' class="alert alert-dismissible animated bounceIn alert-info">
+							<strong>Opps!</strong> Please Enter Email and password
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-10 col-lg-offset-2" align="right">
+
+								<button ng-disabled="prog" type="submit" ng-click="check()" class="btn btn-block btn-success">Login</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<hr>
+				<p class="lead" style="font-size: 12px">Not having a account ?</p>
+				<a ui-sref="signup" class="btn btn-block btn-primary ">Register now</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+

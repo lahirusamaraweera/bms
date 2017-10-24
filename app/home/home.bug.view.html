@@ -1,0 +1,70 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;" align="center">
+
+
+		<div class="col-sm-12" align="center">
+
+			<div class="panel panel-primary" style="max-width : 600px;">
+				<div class="panel-heading">
+					<h3 class="panel-title">Please fill</h3>
+				</div>
+				<div class="panel-body" >
+
+
+					<form class="form-horizontal">
+						<fieldset>
+
+
+							<div class="form-group">
+								
+								<div class="col-lg-12">
+									<textarea class="form-control" rows="3" id="des" ng-model="des" style=""></textarea>
+									<span class="help-block">Kindly describe your problem. It will helpful us to solve as soon as possible</span>
+								</div>
+							</div>
+
+
+							<div ng-show="prog" class="progress progress-striped active">
+								<div class="progress-bar" style="width: 100%"></div>
+							</div>
+
+							<div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+								<strong>Sorry ! </strong>Saving failed.
+							</div>
+							<div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+								<strong>Successfully </strong>Record Updated.
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2" align="right">
+									<button ui-sref="home" class="btn btn-primary"><i class="fa fa-home"></i> back</button>
+									<button type="Submit" ng-click="save()" class="btn btn-success">Submit</button>
+
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+
+
+
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+</div>

@@ -1,0 +1,86 @@
+<div class="container animated fadeIn" >
+
+	<!-- Heading -->
+	<div class="row" style="padding-top : 50px;">
+
+		<div class="col-sm-12">
+
+			<div class="panel panel-default">
+
+				<div class="panel-body" >
+					<div class="row">
+
+						<div class="col-sm-1" align="center">
+
+							<p style="font-size : 22px; margin-bottom : 5px;" class="lead"><i class="fa fa-user  fa-2x"></i></p>
+
+						</div>
+
+						<div class="col-sm-8" align="Left">
+							<p style="font-size : 22px; margin-bottom : 5px;" class="lead"><b>User</b>
+							</p>
+							<p style="font-size : 14px; margin-bottom : 5px;" class="lead">Control panel</p>
+
+						</div>
+						
+						<div class="col-sm-3" align="Right">
+
+							
+							<button ui-sref="cpanel" class="btn btn-link" style="font-size : 12px; margin-bottom : 5px;" class="lead"><i class="fa fa-dashboard fa-2x"></i><br>Back to dashboard</btn>
+
+						</div>
+						
+						
+
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-3">
+
+			<div class="panel panel-default">
+
+				<div class="panel-body" align="center">
+					
+					<p style="font-size : 30px; margin-bottom : 5px;" class="lead">{{nous.length}}</p>
+					<p style="font-size : 18px; margin-bottom : 5px;" class="lead">Total users</p>
+
+					<hr>
+					<button ui-sref="usercontrol.allusers" class="btn btn-success btn-block">View all</button>
+					<button ui-sref="usercontrol" class="btn btn-success btn-block">Add new</button>
+					<button ui-sref="usercontrol" class="btn btn-success btn-block">Grant Permission</button>
+
+
+				</div>
+			</div>
+
+
+
+		</div>
+		<div class="col-sm-9" ui-view>
+		
+		
+		
+		
+		</div>
+		
+
+
+
+	</div>
+
+
+
+</div>

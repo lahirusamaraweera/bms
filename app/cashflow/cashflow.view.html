@@ -1,0 +1,74 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;">
+		<div class="col-md-12">
+
+			<div class="well">
+
+				<h3>Cash flow App</h3>
+				<p><a ui-sref="home">Home</a> > Cashflow </p>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-7">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Current Balance</h3>
+				</div>
+				<div class="panel-body" align="center">
+
+
+					<p style="font-size:25px" >{{balance | number}}<b> LKR</b></p>
+
+				</div>
+
+			</div>
+
+
+
+
+
+		</div>
+		<div class="col-md-5">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Options</h3>
+				</div>
+				<div class="panel-body">
+
+					<div class="list-group" align="center">
+						<a  href="" ui-sref="newcredit" class="list-group-item">
+							<p style="font-size:15px" ><i class="fa fa-minus fa-2x"></i><br>New Credit</p>
+						</a>
+						<a  href="" ui-sref="newdebit" class="list-group-item">
+							<p style="font-size:15px" ><i class="fa fa-plus fa-2x"></i><br>New Debit</p>
+						</a>
+						<a  href="" ui-sref="trans" class="list-group-item">
+							<p style="font-size:15px" ><i class="fa fa-stack-exchange fa-2x"></i><br>View all Transactions</p>
+						</a>
+
+
+					</div>
+					<button ui-sref="bug" class="btn btn-default btn-block "><i class="fa fa-ban"></i> Report a problem</button>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+
+
+
+

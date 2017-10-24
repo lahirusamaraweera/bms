@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Define Stock</h4>
+</div>
+<div class="modal-body" id="modal-body">
+    <h6>Item ID : {{i_id}}</h6>
+        <hr>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="em" class="col-md-1 control-label">Item</label>
+                <div class="col-md-4">
+                    <input disabled="" class="form-control" required id="name" placeholder="" type="text" ng-model="name">
+                </div>
+                <label for="qty" class="col-md-1 control-label">Qty</label>
+                <div class="col-md-1">
+                    <input disabled="" class="form-control" required id="qty" placeholder="" type="text" ng-model="qty">
+                </div>
+                <label for="reorderlimt" class="col-md-1 control-label">Stock</label>
+                <div class="col-md-4">
+                    <select ng-model="st_id" class="form-control " id="st_id" required ng-options="x.st_id as x.st_id+' | '+x.timestamp for x in st">
+                        <option value="">--Select stock--</option>
+                </select>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="col-md-12">
+            <br>
+            <div ng-show="prog" class="progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+        </div>
+</div>
+
+
+<div class="modal-footer">
+    <hr>
+    <button ng-disabled="prog" ng-show="name && qty && st_id" class="btn btn-warning" type="button" ng-click="save()">Save</button>
+</div>

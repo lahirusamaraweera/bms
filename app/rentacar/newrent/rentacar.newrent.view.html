@@ -1,0 +1,185 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;">
+		<div class="col-md-12">
+
+			<div class="well">
+
+				<h3><i class="fa fa-fighter-jet  fa-1x"></i> New Rent </h3>
+				<p><a ui-sref="home">Home</a> > <a ui-sref="rentacar.cars">Rentacar</a> > New rent</p>
+				<button ui-sref="rentacar.cars" class="btn btn-primary"><i class="fa fa-home"></i> back</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">New rent details</h3>
+				</div>
+				<div class="panel-body" >
+					<table class="table table-bordered table-hover"  style="font-size : 13px;">
+
+
+
+						<tr>
+							<td>Car ID</td>
+							<td><b>{{car.c_id}}</b></td>
+
+						</tr>
+						<tr>
+							<td>Vehicle Number</td>
+							<td><b>{{car.v_no}}</b></td>
+
+						</tr>
+						<tr>
+							<td>Make and Model</td>
+							<td><b>{{car.make +" "+car.model}}</b></td>
+
+						</tr>
+
+						<tr>
+							<td>YOM</td>
+							<td><b>{{car.year}}</b></td>
+
+						</tr>
+						<tr>
+							<td>Rate per day</td>
+							<td><b>{{car.rpd | number:2}} LKR</b></td>
+
+						</tr>
+
+						<tr>
+							<td>Rate per month</td>
+							<td><b>{{car.rpm | number:2}} LKR</b></td>
+
+						</tr>
+						<tr>
+							<td>Rate per year</td>
+							<td><b>{{car.rpy | number:2}} LKR</b></td>
+
+						</tr>
+						<tr>
+							<td>Rate per extra KM</td>
+							<td><b>{{car.er | number:2}} LKR</b></td>
+
+						</tr>
+					</table>
+					<hr>
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-9">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Please fill the details</h3>
+				</div>
+				<div class="panel-body" >
+
+
+					<form class="form-horizontal">
+						<fieldset>
+							<h5>Client Details</h5>
+							<hr>
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">Client Name</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="cx_name" placeholder="" type="text" ng-model="cx_name">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">Address</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="cx_address" placeholder="" type="text" ng-model="cx_address">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">NIC</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="cx_nic" placeholder="" type="text" ng-model="cx_nic">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">Telephone</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="cx_tp" placeholder="" type="tel" ng-model="cx_tp">
+								</div>
+							</div>
+							<br>
+							<h5>Vehicle details </h5>
+							<hr>
+							<div class="form-group">
+								<label for="username" class="col-lg-2 control-label">Initial Milage</label>
+								<div class="col-lg-10">
+									<input class="form-control" required id="im" placeholder="" type="number" ng-model="im">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="select" class="col-lg-2 control-label">Packege</label>
+								<div class="col-lg-10">
+									<select class="form-control" id="pkg" ng-model="pkg">
+										<option value="rpd">rates per Day - {{car.rpd | number}}</option>
+										<option value="rpm">rates per Month - {{car.rpm | number}}</option>
+										<option value="rpy">rates per Year- {{car.rpy | number}}</option>
+
+									</select>
+								</div>
+							</div>
+							<div ng-show="prog" class="progress progress-striped active">
+								<div class="progress-bar" style="width: 100%"></div>
+							</div>
+
+							<div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+								<strong>Sorry ! </strong>Saving failed.
+							</div>
+							<div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+								<strong>Successfully </strong>Record Updated.
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2" align="right">
+									<button ui-sref="rentacar.prents" class="btn btn-primary"><i class="fa fa-home"></i> Back to rents</button>
+									<button type="submit" ng-click="saverent()" class="btn btn-success">Save</button>
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+
+
+
+
+
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+
+

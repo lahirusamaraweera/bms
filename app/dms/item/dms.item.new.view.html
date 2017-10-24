@@ -1,0 +1,108 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+
+        <form class="form-horizontal">
+            <fieldset>
+                <p style="font-size : 15px; margin-bottom : 1px;" class="lead"><b>Add a new item</b></p><hr>
+                <div class="form-group">
+                    <label for="em" class="col-lg-2 control-label">Barcode</label>
+                    <div class="col-lg-10">
+                        <input  class="form-control" required id="barcode" placeholder="Barcode of your Item" type="text"  ng-model="barcode">
+                    </div>
+                </div>
+
+                <div ng-show='bcf' align="center" class="alert alert-dismissible animated bounceIn alert-danger">
+                    <strong>You have used this barcode before </strong><br>Another Items was found as <b> {{tbc}} under the {{barcodec}}</b>
+                </div>
+
+                <div class="form-group">
+                    <label for="em" class="col-lg-2 control-label">Name</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" ng-disabled="bad" required id="name" placeholder="Item name with your reference Id Eg : USB drive-00011" type="text" ng-model="name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cat_id" class="col-lg-2 control-label">Category</label>
+                    <div class="col-lg-10">
+                        <select ng-model="cat_id" ng-disabled="bad" class="form-control" id="cat_id" required ng-options="x.cat_id as x.name for x in cats">
+                            <option value="">Select</option>
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="b_id" class="col-lg-2 control-label">Brand</label>
+                    <div class="col-lg-10">
+                        <select ng-model="b_id" ng-disabled="bad" class="form-control" id="b_id" required ng-options="x.b_id as x.name for x in brands">
+                            <option value="">Select</option>
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="packsize" class="col-lg-2 control-label">Packsize</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" ng-disabled="bad" required id="packsize" placeholder="Pack size - Eg: Large, Small etc" type="text" ng-model="packsize">
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="price" class="col-lg-2 control-label">Cost</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" ng-disabled="bad" required id="cost" placeholder="pick a rough cost" type="number" ng-model="cost" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price" class="col-lg-2 control-label">Profit %</label>
+                    <div class="col-md-3">
+                        <input class="form-control" ng-disabled="bad" required id="pp" placeholder="%" type="number" ng-change="pricecal()" ng-model="pp" step="0.01">
+                    </div>
+                    <label for="price" class="col-lg-2 control-label">Price</label>
+                    <div class="col-md-5">
+                        <input class="form-control" ng-disabled="bad" required id="price" placeholder="Pick a Good Price" type="number" ng-model="price" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price" class="col-lg-2 control-label">Re-order limit</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" ng-disabled="bad" required id="reorderlimit" placeholder="pick a reorder remider limit" type="number" ng-model="reorderlimit" >
+                    </div>
+                </div>
+
+                <hr>
+
+                <div ng-show="prog" class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+
+                <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+                    <strong>Sorry ! </strong>Saving failed.
+                </div>
+                <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+                    <strong>Successfully </strong>Record Updated.
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2" align="right">
+
+                        <button ng-disabled="prog || !(name && barcode && cat_id && b_id && packsize && cost && price && reorderlimit)" ng-hide="prog" ng-show="barcode && name && brand && packsize && price && cost" ng-click="check()" class="btn btn-success">Save</button>
+
+                    </div>
+                </div>
+
+
+
+
+            </fieldset>
+        </form>
+
+
+
+    </div>
+</div>

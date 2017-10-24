@@ -1,0 +1,89 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+
+
+        <fieldset>
+            <p style="font-size : 15px; margin-bottom : 1px;" class="lead">Edit Item : {{poitem.s_id}} | {{poitem.name}} | {{poitem.packsize}}</p>
+
+            <hr>
+
+            <table class="table table-bordered table-hover" style="font-size : 11px;">
+                <tr>
+                    <td>Purchase Order ID </td>
+                    <td>{{poitem.pi_id}} </td>
+                </tr>
+                <tr>
+                    <td>Sup item details </td>
+                    <td>{{poitem.name}}</td>
+                </tr>
+
+            </table>
+
+            <hr>
+
+            <form>
+                <div class="form-group">
+
+                    <div class="col-sm-4">
+                        <label for="qtyw" class=" control-label">Qty</label>
+                        <input class="form-control" required id="qtyw" placeholder="Unit Price" type="number" ng-model="qtyw" step='0.01'>
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="price" class=" control-label">Unit Price</label>
+                        <input class="form-control" required id="price" placeholder="Unit Price" type="number" ng-model="price" step='0.01'>
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="date" class=" control-label">Expire date : yyyy-mm-dd</label>
+                        <p class="input-group">
+                            <input class="form-control" is-open="popup1.opened" close-text="Close" alt-input-formats="altInputFormats" uib-datepicker-popup="yyyy-MM-dd" datepicker-options="dateOptions" required id="date" placeholder=""
+                                type="text" ng-model="date">
+                            <span class="input-group-btn">
+                         <button type="button" class="btn btn-link" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                        </p>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+        </fieldset>
+
+        <br>
+
+        <div ng-show="prog" class="progress progress-striped active">
+            <div class="progress-bar" style="width: 100%"></div>
+        </div>
+
+        <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+            <strong>Sorry ! </strong>Saving failed.
+        </div>
+        <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+            <strong>Successfully </strong>Record Updated.
+        </div>
+
+        <hr>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2" align="right">
+                <button ng-disabled="prog" ui-sref="dms_po.deleteitem({s_id : poitem.s_id, po_id : po_id })" class="btn btn-sm btn-danger">Delete this</button>
+                <button ng-disabled="prog" ng-show="price && qtyw && date" type="submit" ng-click="save()" class="btn btn-sm btn-warning">Save chages</button>
+                <button ng-disabled="prog" ui-sref="dms_po.edit({po_id : po_id })" class="btn btn-sm btn-primary">Back</button>
+
+            </div>
+        </div>
+        </form>
+
+    </div>
+</div>

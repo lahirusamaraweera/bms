@@ -1,0 +1,84 @@
+<div class="container animated fadeIn" >
+
+    <!-- Heading -->
+    <div class="row" style="padding-top : 50px;">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-body" >
+                    <div class="row">
+
+                        <div class="col-sm-1" align="center">
+
+                            <p style="font-size : 22px; margin-bottom : 5px;" class="lead"><i class="fa fa-file-text-o  fa-2x"></i></p>
+
+                        </div>
+
+                        <div class="col-sm-8" align="Left">
+                            <p style="font-size : 22px; margin-bottom : 5px;" class="lead"><b>Purchase Orders</b>
+                            </p>
+                            <p style="font-size : 14px; margin-bottom : 5px;" class="lead">Distribution Management System</p>
+
+                        </div>
+
+                        <div class="col-sm-3" align="Right">
+
+
+                            <button ui-sref="dms" class="btn btn-link" style="font-size : 12px; margin-bottom : 5px;" class="lead"><i class="fa fa-dashboard fa-2x"></i><br>Back to dashboard</btn>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-2">
+
+            <div class="panel panel-default">
+                <div class="list-group">
+
+                    
+                    <a href="" ui-sref="dms_po.allp" class="list-group-item">
+                        Pending Purchase orders
+                    </a>
+                    <a href="" ui-sref="dms_po.allc" class="list-group-item">
+                        Completed orders
+                    </a>
+                    <a href="" ui-sref="dms_po.new" class="list-group-item">
+                        Add Purchase Order
+                    </a>	
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-10" ui-view>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+

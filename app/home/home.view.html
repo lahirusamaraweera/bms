@@ -1,0 +1,53 @@
+<div class="container animated fadeIn" >
+	<div class="row" style="padding-top : 50px;">
+
+		<div class="col-md-8">
+
+			<div class="panel panel-default">
+				
+				<div class="panel-body" align="center">
+					<p style="font-size : 20px; margin-bottom : 5px;" class="lead">Hi <b>{{email}}</b>!</p>
+					<p style="font-size : 15px; " class="lead">You're eligible to use follwing apps</p>
+					<div class="list-group" align="center">
+						<a ng-show="cpanel == true" href="" ui-sref="cpanel" class="list-group-item">
+							<p style="font-size:20px; margin-bottom : 5px;" ><i class="fa fa-dashboard  fa-2x"></i> <br>Control Panel</p>
+						</a>
+						<a ng-show="cashflow == true" href="" ui-sref="cashflow" class="list-group-item">
+							<p style="font-size:20px; margin-bottom : 5px;" ><i class="fa fa-money fa-2x"></i> <br>Cashflow app</p>
+						</a>
+						<a ng-show="rentacar == true" href="" ui-sref="rentacar.cars" class="list-group-item">
+							<p style="font-size:20px; margin-bottom : 5px;" ><i class="fa fa-car fa-2x"></i><br> RentaCar app </p>
+						</a>
+						<a ng-show="dms == true" href="" ui-sref="dms" class="list-group-item">
+							<p style="font-size:20px; margin-bottom : 5px;" ><i class="fa fa-cubes fa-2x"></i><br> Distribution Management app </p>
+						</a>
+
+
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-4">
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Account Settings</h3>
+				</div>
+				<div class="panel-body" align="center">
+					<h6><i class="fa fa-user"></i> {{email}}</h6><hr>
+
+					<a ui-sref="cpass({acc : se })" ng-show="admin" class="btn btn-link btn-block "><i class="fa fa-edit"></i> Change password</a>
+					<a ui-sref="bug" class="btn btn-link btn-block "><i class="fa fa-ban"></i> Report a problem</a>
+
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

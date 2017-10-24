@@ -1,0 +1,117 @@
+<div class="container animated fadeIn" >
+
+    <!-- Heading -->
+    <div class="row" style="padding-top : 50px;">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-body" >
+                    <div class="row">
+
+                        <div class="col-sm-1" align="center">
+
+                            <p style="font-size : 22px; margin-bottom : 5px;" class="lead"><i class="fa fa-inbox  fa-2x"></i></p>
+
+                        </div>
+
+                        <div class="col-sm-8" align="Left">
+                            <p style="font-size : 22px; margin-bottom : 5px;" class="lead"><b>Stock and Item</b>
+                            </p>
+                            <p style="font-size : 14px; margin-bottom : 5px;" class="lead">Distribution Management System</p>
+
+                        </div>
+
+                        <div class="col-sm-3" align="Right">
+
+
+                            <button ui-sref="dms" class="btn btn-link" style="font-size : 12px; margin-bottom : 5px;" class="lead"><i class="fa fa-dashboard fa-2x"></i><br>Back to dashboard</btn>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-2">
+
+            <div class="panel panel-default">
+                <div class="list-group">
+
+                    
+                    <a ng-show="admin" ui-sref="dms_item.allitem" class="list-group-item">
+                        My items and pricelist
+                    </a>
+                    <a ng-show="admin" ui-sref="dms_item.itemsale" class="list-group-item">
+                        Item wise sale
+                    </a>
+                    <a ui-sref="dms_item.new" class="list-group-item">
+                        Add a new item
+                    </a>
+                    
+                    <a ng-show="admin" ui-sref="dms_item.config" class="list-group-item">
+                        Configuration
+                    </a>
+                    
+                    	
+                </div>
+                
+            </div>
+            <div class="panel panel-default">
+                <div class="list-group">
+
+                    
+                   
+                    
+                    
+                    <a ui-sref="dms_item.all" class="list-group-item">
+                        Reorder Stock
+                    </a>
+                    <a ui-sref="dms_item.smatch" class="list-group-item">
+                        Sales Matching</b>
+                         <small class="badge" style="background-color : #ff0059;"><b>{{sm.length}}</b> </small>
+                    </a>
+                    <a ng-show="admin" ui-sref="dms_item.stockminus" class="list-group-item">
+                        Stock <b>discard</b>
+                    </a>
+                    <a ui-sref="dms_item.expire" class="list-group-item">
+                        <b>Expiring Stocks</b>
+                        <small class="badge" style="background-color : #ff0059;"><b>{{expire.length}}</b> </small>
+                    </a>
+                    
+                    
+                    
+                    	
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-10" ui-view>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+

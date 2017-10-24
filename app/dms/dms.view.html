@@ -1,0 +1,347 @@
+<div class="container animated fadeIn">
+
+
+    <div class="row" style="padding-top : 40px;">
+
+        <div class="col-md-3">
+
+            <div class="panel panel-default">
+                <div class="list-group">
+
+                    <a class="list-group-item active">
+                        <i class="fa fa-cubes  fa-2x"></i><br><b>Welcome to DMS</b>
+                    </a>
+                    <a href="" ui-sref="dms_supplier.all" class="list-group-item">
+                        <i class="fa fa-users fa-2x"></i> &nbsp; Suppliers
+                        <small class="badge" style="background-color : #595959;"><b>{{datas.suppliers}}</b> </small>
+                    </a>
+
+                    <a href="" ui-sref="dms_po.allp" class="list-group-item">
+                        <i class="fa fa-file-text-o fa-2x"></i> &nbsp; Purchase orders
+                        <small class="badge" style="background-color : #595959;"><b>{{datas.po}}</b> </small>
+                    </a>
+
+                    <a href="" ui-sref="dms_item.allitem" class="list-group-item">
+                        <i class="fa fa-inbox fa-2x"></i> &nbsp; Items &amp; Stock
+                        <small class="badge" style="background-color : #595959;"><b>{{datas.items}}</b> </small>
+                    </a>
+
+                    <a href="" ui-sref="dms_so.allp" class="list-group-item">
+                        <i class="fa fa-file-text fa-2x"></i> &nbsp; Sales Orders
+                        <small class="badge" style="background-color : #595959;"><b>{{datas.so}}</b></small>
+                    </a>
+
+                    <a href="" ui-sref="dms_client.all" class="list-group-item">
+                        <i class="fa fa-user fa-2x"></i> &nbsp; Clients &amp; Regions
+                        <small class="badge" style="background-color : #595959;"><b>{{datas.clients}}</b> </small>
+                    </a>
+                    <a href="" ui-sref="dms_reports" class="list-group-item">
+                        <i class="fa fa-area-chart fa-2x"></i> &nbsp; Reports &amp; Accounts
+                    </a>
+                    <a href="" ui-sref="dms_config.profile" class="list-group-item" ng-show="admin">
+                        <i class="fa fa-wrench fa-2x"></i> &nbsp; Configurations
+
+                    </a>
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="panel panel-default">
+                <div class="list-group">
+
+
+                    <a href="" ng-click="nso()" class="list-group-item active">
+                        <i class="fa fa-paper-plane fa-2x"></i>&nbsp; Quick Sales order - QSO id: {{qcl_id}}
+                    </a>
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-9">
+
+            <!--Profile data-->
+            <div ng-show="admin" class="row">
+
+                <div class="col-md-12">
+
+                    <div class="panel panel-info" style="background-color : #ffffff;">
+
+                        <div class="panel-body">
+                            <div class="col-md-3" align="center">
+
+                                <img width='150px' src={{userd.logo}}>
+                            </div>
+                            <div class="col-md-9">
+                                <br>
+                                <p class="lead" style="font-size :25px; margin-bottom :1px;"><b>{{userd.name}}</b></p>
+                                <p class="lead" style="font-size :15px; margin-bottom :1px;">{{userd.moto}}</p>
+                                <p class="lead" style="font-size :12px; margin-bottom :1px;">{{userd.address1}},{{userd.address2}},{{userd.city}}.</p>
+                                <p class="lead" style="font-size :12px; margin-bottom :1px;">{{userd.postalcode}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- daily collection-->
+            <div ng-show="admin" class="row">
+
+                <div class="col-md-6">
+
+                    <div class="panel panel-info" style="background-color : #ffffff;">
+
+                        <div class="panel-body" align="center">
+                            <p class="lead" style="font-size : 24px; margin-bottom : 5px; "> <i class="fa fa-money fa-1x"></i> LKR <b> {{col.month | number:2}}</b></p>
+                            <p class="lead" style="font-size : 18px; margin-bottom : 5px; ">Total Collections in this Month</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="panel panel-info" style="background-color : #ffffff;">
+
+                        <div class="panel-body" align="center">
+                            <p class="lead" style="font-size : 24px; margin-bottom : 5px; "><i class="fa fa-money fa-1x"></i> LKR <b>{{col.day | number:2}}</b></p>
+                            <p class="lead" style="font-size : 18px; margin-bottom : 5px; ">Today Collections</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- sale-->
+            <div ng-show="admin" class="row">
+
+                <div class="col-md-6">
+
+                    <div class="panel panel-info" style="background-color : #ffffff;">
+
+                        <div class="panel-body" align="center">
+                            <p class="lead" style="font-size : 24px; margin-bottom : 5px; "><i class="fa fa-shopping-cart fa-1x"></i> LKR <b> {{col.smonth | number:2}}</b></p>
+                            <p class="lead" style="font-size : 18px; margin-bottom : 5px; ">Total Sale in this month</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="panel panel-info" style="background-color : #ffffff;">
+
+                        <div class="panel-body" align="center">
+                            <p class="lead" style="font-size : 24px; margin-bottom : 5px; "><i class="fa fa-shopping-cart fa-1x"></i> LKR <b>{{col.sday | number:2}}</b></p>
+                            <p class="lead" style="font-size : 18px; margin-bottom : 5px; ">Today Sale</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- outstanding payment summery-->
+            <div ng-show="admin" class="row">
+
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            My Outstanding payments
+
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="col-md-4">
+                                <p class="lead" style="font-size :11px; margin-bottom :1px;">Summery</p>
+                                <canvas id="pie" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colours="colors">
+                                </canvas>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="panel panel-info" style="background-color : #cc0000;">
+
+                                    <div class="panel-body" align="center">
+                                        <p class="lead" style="font-size : 20px; margin-bottom : 5px; color : #ffffff;">LKR <b>{{totalouts | number}}</b></p>
+                                        <p class="lead" style="font-size : 15px; margin-bottom : 5px; color : #ffffff;">Outstanding Credits</p>
+                                        <button class="btn btn-link btn-block" style="color : #ffffff;" ui-sref="dms_po.allc">View</button>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="panel panel-info" style="background-color : #009900;">
+
+                                    <div class="panel-body" align="center">
+                                        <p class="lead" style="font-size : 20px; margin-bottom : 5px; color : #ffffff; ">LKR <b>{{totalincom | number}}</b></p>
+                                        <p class="lead" style="font-size : 15px; margin-bottom : 5px; color : #ffffff;">Outstanding Collections</p>
+                                        <button style="color : #ffffff;" ui-sref="dms_so.payment" class="btn btn-link btn-block">View</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <!-- daily sale chart-->
+            <div ng-show="admin" class="row">
+
+                <div class="col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Sale and profit in last 7 days
+
+                        </div>
+                        <div class="panel-body">
+
+                            <canvas id="line" class="chart chart-line" chart-data="data1" chart-labels="labels1" chart-series="series1" chart-options="options1"
+                                chart-dataset-override="datasetOverride1" chart-colours="colorss" chart-click="onClick1">
+                            </canvas>
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Top selling items
+                        </div>
+                        <div class="panel-body">
+
+                            <table class="table table table-striped  table-hover" style="font-size : 11px;">
+                                <tr align="Center">
+                                    <th>#</th>
+                                    <th align="center">Item details</th>
+                                    <th align="center">Sold Qty</th>
+
+                                </tr>
+
+                                <tr ng-repeat="x in topitems">
+
+                                    <td>{{ $index+1 }}</td>
+                                    <td align="left"><b>{{x.name}}</b> | {{x.packsize}} Item id : {{x.i_id}}</td>
+                                    <td align="center">{{(-1)*x.qty | number}}</td>
+
+                                </tr>
+
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <!-- daily item wise chart-->
+            <div class="row" ng-show="admin">
+
+
+            </div>
+
+            <!-- for non admin users-->
+            <div class="row" ng-show="!admin">
+                <div align="center" class="col-md-12">
+                    <h2 style="padding-top : 10px; padding-bottom: 10px;"> {{userm}} @ {{emailm}} </h2>
+                    <hr>
+
+                    <div class="col-md-4">
+                        <br>
+                        <a ui-sref="dms_client.new" class="btn btn-block btn-primary">New Sales order</a>
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        <a ui-sref="dms_so.payment" class="btn btn-block btn-success">New Payment</a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <br>
+                        <a ui-sref="dms_item.new" class="btn btn-block btn-warning">New Item</a>
+                    </div>
+                    <br>
+                </div>
+                <div align="center" class="col-md-12">
+                    <br>
+
+
+                    <div class="col-md-4">
+                        <br>
+                        <a ui-sref="dms_item.smatch" class="btn btn-block btn-danger">Sales Matching</a>
+                    </div>
+
+                    <br>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

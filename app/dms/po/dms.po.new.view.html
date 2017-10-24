@@ -1,0 +1,64 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+
+        <p style="font-size : 15px; margin-bottom : 1px;" class="lead">New Purchase Order</p><hr>
+
+
+        <form class="form-horizontal">
+            <fieldset>
+
+
+
+                <div class="form-group">
+                    <label for="nod" class="col-lg-2 control-label">Select Supplier</label>
+                    <div class="col-lg-10">
+
+                        <select ng-model="sup_id" class="form-control" id="sup_id" required ng-options="x.sup_id as x.name for x in suppliers" ng-change="getouts()">
+                            <option value="">Select</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="remarks" class="col-lg-2 control-label">Remarks</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" required id="remarks" placeholder="remarks" type="text" ng-model="remarks">
+                    </div>
+                </div>
+                <hr>
+
+
+                <div ng-show="prog" class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+
+                <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+                    <strong>Sorry ! </strong>Saving failed.
+                </div>
+                <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+                    <strong>Successfully </strong>Record Updated.
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2" align="right">
+                        <p ng-show="outs" style="font-size : 14px; margin-bottom : 1px;" class="lead"><b>{{outs | number}} LKR Outstanding </b></p>
+                        <button ng-disabled="prog" ng-show="sup_id" type="submit" ng-click="save()" class="btn btn-success">Start</button>
+
+                    </div>
+                </div>
+
+
+
+
+            </fieldset>
+        </form>
+
+
+
+
+
+
+    </div>
+</div>

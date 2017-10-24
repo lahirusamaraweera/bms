@@ -1,0 +1,331 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <p style="font-size : 15px; margin-bottom : 1px;" class="lead">Sales Order - ID {{so.so_id}} @ <b>{{so.timestamp}}</b>
+                </p>
+                <hr>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <b>
+            
+                <table class="table table-bordered table-hover"  style="font-size : 11px;">
+                    <tr class="success" ng-show="so.status==1">
+                       
+                        <td align="center"><p class="lead" style="font-size : 20px; margin-bottom : 1px; ">{{so.total | number:2}}</p>
+
+                        <span ng-show="so.pstatus == 0 && so.status==1" class="badge" style="background-color : #f44242;"> Payment not received</span>
+                        <span ng-show="so.pstatus == 1 && so.status==1" class="badge" style="background-color : #187703;">  Payment Completed</span>
+                        <span ng-show="so.pstatus == 0 && so.status==1" class="badge" style="background-color : #a44242;"> {{so.total - so.pamount | number : 2}} Outstanding</span>
+                        <span ng-show="so.discount > 0 && so.status==1" class="badge" style="background-color : #9007f3;"> LKR {{so.discount}} of Discount given </span>
+                
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{so.name}} | {{so.address}}</td>
+                    </tr>
+
+
+                </table>
+
+            </b>
+                <hr ng-hide="so.status==1">
+
+                <table ng-hide="so.status==1" class="table table-bordered table-hover" style="font-size : 11px;">
+
+
+                    <tr>
+                        <td>Sub total</td>
+                        <td align="right">{{ptotal() | number}}</td>
+                    </tr>
+
+                    <tr class="active">
+                        <td>Discount</td>
+                        <td align="right">
+
+
+                            <input class="form-control" required id="discount" placeholder="discount" type="number" ng-model="discount" step="0.01" value="0">
+
+
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td><b>Grand total</b></td>
+                        <td align="right"><b>{{ptotal()-discount | number}}</b></td>
+
+                    </tr>
+
+
+                </table>
+                <hr ng-hide="so.status==1">
+                <div ng-show="soitems.length>0" class="col-md-12" align="right">
+                    
+                    <input class="form-control" required id="cterm" placeholder="Additional terms" type="text" ng-model="cterm">
+                    <br>
+                    <button ng-show="soitems.length>0 && so.status==0" ng-click="quote()" class="btn btn-sm btn-primary">Print  Quotation</button>
+                    <button ng-show="soitems.length>0" ng-click="invoice()" class="btn btn-sm btn-info">Print  invoice </button>
+
+                </div>
+                <br>
+            </div>
+
+            <div class="col-md-7">
+
+                <div class="col-md-12" align="center" ng-show="so.status==0 && so.pstatus==0">
+                    <div style="max-width : 300px" class="btn-group btn-group-justified">
+                        <a ng-click="bc=false" class="btn btn-success btn-sm">Barcode</a>
+                        <a ng-click="bc=true" class="btn btn-warning btn-sm">Manual</a>
+                    </div>
+                    <br>
+                </div>
+
+                <!-- selection basis-->
+                <form class="form-horizontal" ng-show="bc">
+                    <div ng-show="so.status==0 && so.pstatus==0">
+                        <p style="font-size : 13px; margin-bottom : 1px;" class="lead">Add items</p>
+
+                        <div class="form-group" align="center">
+
+
+
+                            <div class="col-sm-4">
+
+                                <select ng-model="i_id" class="form-control input-sm" id="i_id" required ng-options="x.i_id as x.name+' | '+x.brand+' | '+x.packsize+' | ID-'+x.i_id for x in items"
+                                    ng-change="pocost()">
+                                    <option value="">Select item</option>
+                                    </select>
+
+                            </div>
+                            <div class="col-sm-2">
+
+                                <input class="form-control input-sm" required id="qty" placeholder="Qty" type="number" ng-model="qty" step="0.01">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                                <input class="form-control input-sm" required id="price" placeholder="Unit Price" type="number" ng-model="price"
+                                    step="0.01">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                                <input class="form-control input-sm" required id="cost" placeholder="cost" type="number" ng-model="cost" step="0.01">
+
+                            </div>
+                            <div class="col-sm-2">
+                                <button ng-disabled="prog" ng-show="i_id && qty && price && cost" type="submit" ng-click="itemsave()" class="btn btn-success btn-sm btn-block">Add</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+
+                <!-- barcode basis-->
+                <form class="form-horizontal" ng-hide="bc">
+                    <div ng-show="so.status==0 && so.pstatus==0">
+                        <p style="font-size : 13px; margin-bottom : 1px;" class="lead">Add through Barcode</p>
+
+                        <div class="form-group" align="center">
+
+
+
+                            <div class="col-sm-10">
+
+                                <input class="form-control" required id="barcode" placeholder="barcode" type="text" ng-model="barcode">
+
+                            </div>
+
+
+
+                            <div class="col-sm-2">
+                                <button ng-show="barcode" type="submit" ng-click="lidname()" class="btn btn-success btn-sm btn-block">Add</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <br>
+                                <div ng-show='barcodefail' class="alert alert-dismissible animated bounceIn alert-danger">
+                                    <strong>Item not found for this barcode</strong>.
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+
+                <hr ng-hide="so.status==1">
+
+                
+                <p style="font-size : 13px; margin-bottom : 1px;" class="lead">item details</p>
+                <table class="table table-striped table-hover" style="font-size : 11px;">
+                    <tr align="Center" class="success">
+                        <th>#</th>
+                        <th>Item</th>
+                        <th>qty/unitprice</th>
+                        <th>Total</th>
+                        <th ng-hide="so.status==1" align="right"></th>
+
+                    </tr>
+
+                    <tr ng-repeat="x in soitems ">
+
+                        <td>{{ $index+1 }}</td>
+                        <td align="">{{x.name}} | id :{{x.i_id}}</td>
+                        <td align="">{{(-1)*(x.qty)}} X {{(-1)*(x.price/x.qty)}}</td>
+                        <td align="right">{{x.price | number}}</td>
+                        <td ng-hide="so.status==1">
+                            <button style="font-size : 11px" ui-sref="dms_so.edititem({s_id : x.s_id, so_id : x.pi_id })" class="btn btn-link btn-sm btn-block">View </button>
+                        </td>
+
+
+                    </tr>
+
+
+                </table>
+                <br>
+                
+            </div>
+        </div>
+
+        <br><br>
+
+        <div ng-show="prog" class="progress progress-striped active">
+            
+            <div class="progress-bar" style="width: 100%"></div>
+        </div>
+
+        <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+        
+            <strong>Sorry ! </strong>Saving failed.
+        </div>
+        
+        <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+           
+            <strong>Successfully </strong>Record Updated.
+        </div>
+
+
+
+        <!-- Actions -->
+        <div class="col-md-12" align="right">
+            <hr>
+            <button ng-disabled="prog || !(so.status == 1 && soitems.length>0)" ng-click="ret(so.so_id)" class="btn btn-sm btn-info"><i class="fa fa-arrow-down"></i> Returns</button>
+            <button ng-disabled="prog || !(so.status == 0)" ng-click="del = true; com = false" class="btn btn-sm btn-danger">Delete this SO</button>
+            <button ng-disabled="prog || !(so.status == 0 && soitems.length>0)" ng-click="com=true; del=false" class="btn btn-sm btn-success">Proceed</button>
+            
+        </div>
+
+        <!-- proceed confirm-->
+        <div ng-show="com" align="center">
+            <br>
+            <hr>
+            <br>
+            <p class="lead" style="font-size: 13px">Do you really want to <b> PROCEEED</b> this Sales order</p>
+            <button ng-show="(so.status == 0 && soitems.length>0) || ptotal()-so.discount!=so.total" ng-click="complete()" class="btn btn-sm btn-success">Yes</button>
+            <button ng-click="com=false" class="btn btn-sm btn-danger">No</button>
+
+
+        </div>
+
+        <!-- Delete confirm-->
+        <div ng-show="del" align="center">
+            <br>
+            <hr>
+            <br>
+            <p class="lead" style="font-size: 13px">Do you really want to <b>DELETE</b> this Sales order</p>
+            <button ng-click="deleteso()" class="btn btn-sm btn-success">Yes</button>
+            <button ng-click="del=false" class="btn btn-sm btn-danger">No</button>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!-- payment -->
+<div class="panel panel-default  animated bounceInUp" ng-show="so.status ==  1">
+
+    <div class="panel-body">
+
+        <p style="font-size : 13px; margin-bottom : 1px;" class="lead"><b>Payments</b></p>
+        <hr>
+        <form class="form-horizontal">
+            <div>
+                <p style="font-size : 11px; margin-bottom : 1px;" class="lead">Add a payment</p>
+
+                <div class="form-group">
+
+
+                    
+                    <div class="col-sm-4">
+
+                        <input class="form-control" required id="paidamount" placeholder="Amount" type="number" ng-model="paidamount" step="0.01">
+
+                    </div>
+                    <div class="col-sm-4">
+
+                        <select ng-model="paidtype" class="form-control" id="ptype" required>
+                            <option value="">Select item</option>
+                            <option value="cash">Cash</option>
+                            <option value="cheque">Cheque</option>
+                            <option value="other">Other</option>
+
+                            </select>
+
+                    </div>
+                    <div class="col-sm-2">
+
+                        <input class="form-control" required id="paidremarks" placeholder="remarks" type="text" ng-model="paidremarks">
+
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button ng-disabled="progp" ng-show="paidtype && paidamount && (so.total-so.pamount)>=paidamount" ng-click="payment()" class="btn btn-success btn-block">Paid</button>
+                    </div>
+
+
+                </div>
+                <hr>
+            </div>
+        </form>
+
+        <p style="font-size : 13px; margin-bottom : 1px;" class="lead">Payment History</p>
+        <table class="table table-striped table-hover" style="font-size : 11px;">
+            <tr align="Center" class="success">
+                <th>#</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Remarks</th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="x in payments">
+
+                <td>{{ $index+1 }}</td>
+                <td>{{x.timestamp}}</td>
+                <td>{{x.type}}</td>
+                <td>{{x.amount}}</td>
+                <td>{{x.remarks}}</td>
+                <td width="80px">
+                    <button class="btn btn-sm btn-block btn-info" ng-disabled="prog" ng-click="recept(x.amount,x.type)">Receipt</button>
+
+                </td>
+
+            </tr>
+
+
+        </table>
+
+
+    </div>
+
+
+
+</div>

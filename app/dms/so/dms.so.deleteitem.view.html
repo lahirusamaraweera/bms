@@ -1,0 +1,31 @@
+<div class="panel panel-default  animated bounceInUp">
+
+    <div class="panel-body">
+
+
+        <fieldset>
+            <p style="font-size : 15px; margin-bottom : 1px;" class="lead">Are you want to delete this item : {{sid}}</p>
+            
+            <br>
+            <div ng-show="prog" class="progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+
+            <div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+                <strong>Sorry ! </strong>Saving failed.
+            </div>
+            <div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+                <strong>Successfully </strong>Deleted
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <div class="col-md-12" align="center">
+                    <button ng-click="delete()" style="min-width : 200px" class="btn btn-danger">Yes</button>
+                    <button ng-click="back()" style="min-width : 200px"  class="btn btn-success">No</button>
+                </div>
+            </div>
+
+
+            </div>
+    </div>

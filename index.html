@@ -1,0 +1,127 @@
+
+<!DOCTYPE HTML>
+<!Developed by Xeonsoftsolutions | Lahiru Samaraweera>
+<html ng-app="lsapp">
+
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>BMS - Business Management System</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- Favicon -->
+
+		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Fonts  -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/simple-line-icons.css">
+		<!-- Switchery -->
+
+		<!-- CSS Animate -->
+		<link rel="stylesheet" href="css/animate.css">
+
+		<!-- Feature detection -->
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+
+
+	</head>
+	<body>
+
+		<section id="main-wrapper" >
+			<header id="header" ng-if="login == 1" ng-include="'views/nav.html'">
+
+			</header>
+			<section class="main-content-wrapper" style="padding-top : 70px;">
+
+
+				<section id="main-content" >
+
+
+				<section ui-view></section>
+
+				</section>
+
+
+			</section>
+		</section>
+
+
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-touch.min.js"></script>
+		<script src="js/angular-animate.js"></script>
+		<script src="js/ui-bootstrap-tpls-1.3.3.min.js"></script>
+		<script src="js/angular/angular-base64.js"></script>
+		<script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="js/jq.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        
+       
+        <script src="js/chartjs/Chart.min.js"></script>
+        <script src="js/angular-chart.min.js"></script>
+		<!--
+        <script src="js/chartjs/tc-angular-chartjs.min.js"></script>
+        -->
+        
+		<script src="js/angular-ui-router.js"></script>
+        <script src="js/html2canvas.min.js"></script>
+        <script src="js/html2canvas.svg.min.js"></script>
+
+
+
+		<script src="app.js"></script>	
+		<script src="config.js"></script>
+		
+		<!-- controllers -->
+		<script src="controllers/paper.controller.js"></script>
+		<script src="app/login/login.controller.js"></script>
+		<script src="app/home/home.controller.js"></script>
+		<script src="app/cashflow/cashflow.controller.js"></script>
+		<script src="app/rentacar/rentacar.controller.js"></script>
+		<script src="app/rentacar/newrent/rentacar.newrent.controller.js"></script>
+		<script src="app/rentacar/newcar/rentacar.newcar.controller.js"></script>
+		<script src="app/rentacar/finishrent/rentacar.finishrent.controller.js"></script>
+		<script src="app/home/home.bug.controller.js"></script>
+		<script src="app/cpanel/cpanel.controller.js"></script>
+		<script src="app/cpanel/usercontrol/cpanel.usercontrol.controller.js"></script>
+		<script src="app/cpanel/usercontrol/user/cpanel.user.contoller.js"></script>
+		<script src="app/dms/dms.controller.js"></script>
+		<script src="app/dms/suppliers/dms.supplier.controller.js"></script>
+        <script src="app/dms/po/dms.po.controller.js"></script>
+        <script src="app/dms/item/dms.item.controller.js"></script>
+        <script src="app/dms/so/dms.so.controller.js"></script>
+        <script src="app/dms/client/dms.client.controller.js"></script>
+		<script src="app/signup/signup.controller.js"></script>
+		<script src="app/dms/config/dms.config.controller.js"></script>
+		<script src="app/dms/reports/dms.reports.controller.js"></script>
+                
+                
+		
+		<!-- services -->
+		<script src="app/login/login.service.js"></script>
+		<script src="app/restful/restful.js"></script>
+
+		
+		
+
+		<script src="js/chartjs/Chart.min.js"></script>
+		<script src="js/chartjs/tc-angular-chartjs.min.js"></script>
+		<script src="js/angular-ui-router.js"></script>
+		<script src="js/pdfmake.min.js"></script>
+		<script src="js/vfs_fonts.js"></script>
+
+
+
+
+
+	</body>
+
+	
+</html>
+<!Copyrights -  Lahiru Samaraweera>
+
+

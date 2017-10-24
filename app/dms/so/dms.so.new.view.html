@@ -1,0 +1,58 @@
+<div class="panel panel-default  animated bounceInUp">
+
+	<div class="panel-body">
+        
+        <p style="font-size : 15px; margin-bottom : 1px;" class="lead">New Sales Order</p><hr>
+				
+
+		<form class="form-horizontal">
+			<fieldset>
+				
+				
+
+				<div class="form-group">
+					<label for="nod" class="col-lg-2 control-label">Select Client</label>
+					<div class="col-lg-10">
+						
+                          <select ng-model="cl_id" class="form-control" id="cl_id" required ng-options="x.cl_id as x.name for x in clients">
+                              <option value="">Select</option>
+                        </select>
+                        
+					</div>
+				</div>
+
+				
+				<hr>
+
+
+				<div ng-show="prog" class="progress progress-striped active">
+					<div class="progress-bar" style="width: 100%"></div>
+				</div>
+
+				<div ng-show='savefail' class="alert alert-dismissible animated bounceIn alert-warning">
+					<strong>Sorry ! </strong>Saving failed.
+				</div>
+				<div ng-show='savesuccess' class="alert alert-dismissible animated bounceIn alert-success">
+					<strong>Successfully </strong>Record Updated.
+				</div>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2" align="right">
+
+						<button ng-disabled="prog" ng-show="cl_id" type="submit" ng-click="save()" class="btn btn-success">Start</button>
+
+					</div>
+				</div>
+
+
+
+
+			</fieldset>
+		</form>
+
+
+
+
+
+
+	</div>
+</div>
